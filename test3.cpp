@@ -26,7 +26,9 @@ void bacaFilePeta(string namaFile,entitas &player,entitas &anomali){
     while (getline(file, line)&&X<Max_X){
     	for(int i=0;i<line.length()&&Y<Max_Y;i++){
     		peta[X][i]=line[i];
-    		
+    		if (peta[X][i]== 'R' || peta[X][i]== 'S' || peta[X][i]== 'T') {
+                peta[X][i] = ' ';
+            }
     		 if (peta[X][i] == 'O') {
                 player.x = i;
                 player.y = X;
@@ -75,7 +77,7 @@ void gerakanplayer(entitas &player,entitas &anomali,bool &game_berjalan, bool &m
 	char pemain=peta[Ysetelah][Xsetelah];
 	if (pemain=='K'){
 		player.bawakunci=true;
-		peta[Y][X]=' ';
+		peta[Ysetelah][Xsetelah]= ' ';
 	}
 	if (pemain=='E'){
 		if(player.bawakunci){
@@ -83,11 +85,10 @@ void gerakanplayer(entitas &player,entitas &anomali,bool &game_berjalan, bool &m
 			game_berjalan=false;
 		}
 	}
-	if (pemain=='A'){
-		game_berjalan=false;
-		menang=false;
-	}
-	
+	if (Xsetelah == anomali.x && Ysetelah == anomali.y) {
+        game_berjalan = false;
+        menang = false;
+    }
 	player.x=Xsetelah;
 	player.y=Ysetelah;
 }
@@ -96,7 +97,7 @@ void gerakanplayer(entitas &player,entitas &anomali,bool &game_berjalan, bool &m
     	char input;
     	entitas player = {0, 0, 'O', false};
     	entitas anomali = {0, 0, 'A', false}; 
-    	bacaFilePeta("Labirin2.txt",player,anomali);
+    	bacaFilePeta("Level3.txt",player,anomali);
     	bool game_berjalan = true;
     	bool menang = false;
     	tampilkanPeta(player,anomali);
