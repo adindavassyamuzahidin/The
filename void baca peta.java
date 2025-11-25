@@ -1,0 +1,41 @@
+void bacaFilePeta(string namaFile,entitas &player,entitas &anomali){
+ ifstream file(namaFile.c_str());
+    if (!file.is_open()) {
+        cout << "Error: File " << namaFile << " tidak ditemukan!" << endl;
+        exit(1);
+    }
+    string line;
+    while (getline(file, line)&&X<Max_X){
+    	for(int i=0;i<line.length()&&Y<Max_Y;i++){
+    		peta[X][i]=line[i];
+    		 if (peta[X][i] == 'O') {
+                player.x = i;
+                player.y = X;
+                peta[X][i]= ' ';
+            }else if (peta[X][i] == 'A') {
+			    anomali.x = i;
+                anomali.y = X;
+                peta[X][i]= ' ';
+			}
+		}
+		if (line.length()>Y)
+		Y=line.length();
+		X++;
+	}
+    file.close();
+}
+
+void tampilkanPeta(entitas player,entitas anomali) {
+    for (int i = 0; i < X; i++) {
+        for (int j = 0; j < Y; j++) {
+        	if (i==player.y && j==player.x){
+        		cout<<player.simbol;
+        		}else if (i==anomali.y && j==anomali.x) {
+                cout << anomali.simbol;
+            } else {
+        	cout << peta[i][j];
+            }
+		}
+        cout<<endl;
+    }
+}
