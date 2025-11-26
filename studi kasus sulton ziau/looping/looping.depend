@@ -1,0 +1,9 @@
+# depslib dependency file v1.0
+1764150540 source:c:\users\sulto\onedrive\dokumen\c++\looping\looping.cpp
+	<iostream>
+	<cstdlib>
+	<chrono>
+	<thread>
+	<iomanip>
+	<conio.h>
+
