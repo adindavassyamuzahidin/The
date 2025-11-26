@@ -292,9 +292,9 @@ int main(){
     int jumlahAnomali = 3;
     
     // Inisialisasi setiap anomali dengan route dan kecepatan berbeda
-    initiateAnomali(anomaliList[0], routeA1, sizeof(routeA1)/sizeof(routeA1[0]), 100, u8"∫");
-    initiateAnomali(anomaliList[1], routeA2, sizeof(routeA2)/sizeof(routeA2[0]), 500, u8"∫");
-    initiateAnomali(anomaliList[2], routeA3, sizeof(routeA3)/sizeof(routeA3[0]), 450, u8"∫");
+    initiateAnomali(anomaliList[0], routeA1, sizeof(routeA1)/sizeof(routeA1[0]), 50, u8"∫");
+    initiateAnomali(anomaliList[1], routeA2, sizeof(routeA2)/sizeof(routeA2[0]), 50, u8"∫");
+    initiateAnomali(anomaliList[2], routeA3, sizeof(routeA3)/sizeof(routeA3[0]), 50, u8"∫");
 
     bacaFilemap("Level3.txt", player);
 
